@@ -1,0 +1,10 @@
+@echo off
+rem 复制本文件到 GPT-SoVITS 整合包根目录，重命名为 go-api.bat 后双击启动 API。
+rem 无 NVIDIA GPU 或报 "slow_conv2d_cpu not implemented for Half" 时，
+rem 编辑 GPT_SoVITS/configs/tts_infer.yaml 的 custom 段：device: cpu、is_half: false
+set "SCRIPT_DIR=%~dp0"
+set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
+cd /d "%SCRIPT_DIR%"
+set "PATH=%SCRIPT_DIR%\runtime;%PATH%"
+runtime\python.exe -I api_v2.py -a 127.0.0.1 -p 9880 -c GPT_SoVITS/configs/tts_infer.yaml
+pause

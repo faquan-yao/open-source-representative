@@ -1,0 +1,72 @@
+---
+description: 开源科代表项目目录与按周产出路径约定
+alwaysApply: true
+---
+
+# 存储路径约定
+
+## 目录结构
+
+```
+open-source-representative/
+├── README.md
+├── requirements.txt
+├── tools/                              # 公用脚本与配置（仅源码，不写运行时产物）
+│   ├── collect_weekly_stars.py
+│   ├── clone_repos.py
+│   ├── topic_allowlists.yaml
+│   └── README.md
+└── output/                             # 全部生成物（gitignore，不入库）
+    ├── logs/                           # 运行日志（按周分子目录）
+    │   └── YYYY年第WW周/
+    │       └── run-log.txt
+    ├── tmp/                            # 临时文件与缓存（按周或全局）
+    │   ├── cache/
+    │   │   └── topic_index.json        # topic 索引缓存（跨周复用）
+    │   └── YYYY年第WW周/
+    │       └── stars_{start}_{end}.json
+    └── YYYY年第WW周/                   # 正式产出（仅交付物）
+        ├── github-star-growth.csv
+        ├── github-star-growth.json
+        └── 报告/                       # 各仓库分析报告（按 slug 分子目录）
+            ├── README.md               # 报告索引
+            └── {owner}-{repo}/
+                ├── developer-onboarding-report.md
+                ├── dev-onboarding-scratch.md       # 可选草稿
+                ├── PPT/developer-onboarding-report/
+                │   ├── slides.pptx                 # 必交付
+                │   ├── slides.marp.md
+                │   └── narration-script.md         # 口播稿
+                └── video/developer-onboarding-report/
+                    └── narrated.mp4                # 必交付
+```
+
+`output/tmp/YYYY年第WW周/repos/{slug}/` — CSV 中仓库的 **clone 临时目录**（slug = `owner/repo` 中 `/` 换 `-`）
+
+**PPT/视频产出目录 `{产出目录}`** = `output/YYYY年第WW周/报告/{slug}/`（与 document-to-presentation、presentation-to-video skill 兼容）
+
+## 规则
+
+- **公用文档/脚本**：放根目录或 `tools/`，**禁止**在 `tools/` 下写 cache/log。
+- **全部生成物**：统一写入 `output/`（含正式产出、日志、缓存、clone）。
+- **正式产出**：仅 `github-star-growth.csv`、`github-star-growth.json` → `output/YYYY年第WW周/`。
+- **运行日志**：`output/logs/YYYY年第WW周/run-log.txt`（含 Stats、错误、QA）。
+- **临时/缓存**：`output/tmp/` 下；Archive 缓存按周 → `output/tmp/YYYY年第WW周/`；topic 索引 → `output/tmp/cache/topic_index.json`。
+- **禁止**在根目录或 `output/` 周次产出目录堆放 `run-progress.log`、`*-progress.log`、`cache/` 等运行时文件。
+- 周次命名：ISO 8601 → `YYYY年第WW周`（WW 两位补零）。
+
+## 示例
+
+| 类型 | 路径 |
+|------|------|
+| 采集脚本 | `tools/collect_weekly_stars.py` |
+| 周报 CSV | `output/2026年第24周/github-star-growth.csv` |
+| 运行日志 | `output/logs/2026年第24周/run-log.txt` |
+| Archive 缓存 | `output/tmp/2026年第24周/stars_2026-06-08_2026-06-14.json` |
+| topic 索引缓存 | `output/tmp/cache/topic_index.json` |
+| 仓库 clone | `output/tmp/2026年第24周/repos/chopratejas-headroom/` |
+| 开发者概览报告 | `output/2026年第24周/报告/chopratejas-headroom/developer-onboarding-report.md` |
+| 批量 clone | `tools/clone_repos.py` |
+| Agent Skills | `.cursor/skills/`（采集、报告、PPT、视频） |
+| PPT 套件 | `output/2026年第24周/报告/chopratejas-headroom/PPT/developer-onboarding-report/slides.pptx` |
+| 口播视频 | `output/2026年第24周/报告/chopratejas-headroom/video/developer-onboarding-report/narrated.mp4` |

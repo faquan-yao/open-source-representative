@@ -1,0 +1,13 @@
+# GPT-SoVITS 全局默认（presentation-to-video）
+# ref.wav 需放在同目录；路径相对于项目根或使用绝对路径
+
+gpt_sovits:
+  api_url: http://127.0.0.1:9880
+  ref_audio_path: tools/voice/ref.wav
+  prompt_text_file: tools/voice/ref.txt
+  prompt_lang: zh
+  text_lang: zh
+  speed_factor: 0.95
+  repetition_penalty: 1.35
+  text_split_method: cut5
+  timeout_seconds: 300

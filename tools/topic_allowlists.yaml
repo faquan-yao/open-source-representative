@@ -1,0 +1,108 @@
+# 严格 topic 白名单：仓库须至少命中一个 topic 才纳入对应类别
+# 匹配时不区分大小写
+
+AI:
+  label: AI
+  topics:
+    - artificial-intelligence
+    - machine-learning
+    - deep-learning
+    - llm
+    - large-language-models
+    - generative-ai
+    - ai
+    - ml
+    - nlp
+    - natural-language-processing
+    - computer-vision
+    - neural-network
+    - neural-networks
+    - transformers
+    - gpt
+    - chatgpt
+    - langchain
+    - rag
+    - ai-agents
+    - ai-agent
+    - mcp
+    - model-context-protocol
+    - diffusion
+    - stable-diffusion
+    - llmops
+    - mlops
+    - reinforcement-learning
+    - speech-recognition
+    - text-to-speech
+    - image-generation
+    - vector-database
+    - embedding
+    - fine-tuning
+    - prompt-engineering
+    - agentic-ai
+    - coding-agent
+    - ai-assistant
+
+new_energy:
+  label: 新能源
+  topics:
+    - renewable-energy
+    - solar
+    - solar-energy
+    - photovoltaics
+    - photovoltaic
+    - wind-energy
+    - wind-power
+    - battery
+    - battery-management
+    - bms
+    - energy-storage
+    - ev
+    - electric-vehicle
+    - electric-vehicles
+    - ev-charging
+    - charging-station
+    - microgrid
+    - smart-grid
+    - clean-energy
+    - new-energy
+    - hydrogen
+    - fuel-cell
+    - power-electronics
+    - inverter
+    - home-assistant-energy
+    - openevse
+    - emobility
+    - grid-storage
+
+autonomous_driving:
+  label: 自动驾驶
+  topics:
+    - autonomous-driving
+    - self-driving
+    - self-driving-car
+    - self-driving-cars
+    - autonomous-vehicles
+    - autonomous-vehicle
+    - adas
+    - autopilot
+    - autoware
+    - apollo
+    - carla
+    - nuplan
+    - nuscenes
+    - lidar-perception
+    - end-to-end-driving
+    - self-driving-technology
+    - robotics-autonomous
+    - openpilot
+    - ros-autonomous
+    - driving-simulation
+    - bev-perception
+    - motion-planning
+    - path-planning
+
+# 跨类去重优先级（数字越小优先级越高）
+category_priority:
+  - AI
+  - 自动驾驶
+  - 新能源

@@ -1,0 +1,13 @@
+# 口播视频默认配置（可复制到 {产出目录}/PPT/{basename}/ 或 {产出目录}/video/{basename}/video-config.yaml 覆盖）
+# 全局 GPT-SoVITS 默认值见 tools/voice/gpt-sovits.defaults.yaml
+
+resolution: 1920x1080
+fps: 30
+min_slide_seconds: 2
+padding_seconds: 0.3
+output: narrated.mp4
+
+# 可选：覆盖全局 gpt_sovits 默认值（ref 音频通常放在 tools/voice/）
+# gpt_sovits:
+#   speed_factor: 0.95
+#   repetition_penalty: 1.35

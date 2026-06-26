@@ -1,0 +1,18 @@
+# All generated artifacts (see .cursor/rules/storage-paths.mdc)
+output/
+
+# Python bytecode cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Stray progress logs at repo root (should use output/logs/{week}/)
+run-progress.log
+*-run-progress.log
+*-progress.log
+
+# Legacy paths (pre output/ split)
+logs/
+tmp/
+tools/cache/
+**/cache/

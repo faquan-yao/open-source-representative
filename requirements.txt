@@ -1,2 +1,37 @@
+# 开源科代表 · 环境与依赖
+# 安装：pip install -r requirements.txt
+#
+# =============================================================================
+# 系统工具（pip 无法安装，须提前自行安装并加入 PATH）
+# =============================================================================
+#
+# Python 3.10+          采集 / clone / 视频合成脚本
+# git                   tools/clone_repos.py 浅克隆仓库
+# Node.js 16+（含 npx）  Marp 导出 PPTX 与幻灯片 PNG（document-to-presentation、presentation-to-video）
+# ffmpeg + ffprobe      口播视频合成（presentation-to-video）
+#
+# 可选（全链路视频口播）：
+# GPT-SoVITS 整合包      启动 api_v2.py，默认 http://127.0.0.1:9880
+#                       见 .cursor/skills/presentation-to-video/references/gpt-sovits-setup.md
+# tools/voice/ref.wav   5–10 秒参考干声（与 ref.txt 逐字一致，自行录制）
+#
+# =============================================================================
+# 环境变量（可选）
+# =============================================================================
+#
+# GITHUB_TOKEN 或 GH_TOKEN   GitHub PAT（public_repo 只读即可），加速 Search API
+#
+# =============================================================================
+# Windows 快速安装示例（winget）
+# =============================================================================
+#
+# winget install OpenJS.NodeJS.LTS
+# winget install Gyan.FFmpeg
+# winget install Git.Git
+#
+# =============================================================================
+# Python 包（pip install -r requirements.txt）
+# =============================================================================
+
 requests>=2.31.0
 pyyaml>=6.0.1
